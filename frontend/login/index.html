@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Track Master - Login/Register</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-box" id="loginBox">
+      <h2>Login</h2>
+      <form>
+        <label>Username</label>
+        <input type="text" placeholder="Enter your username" required>
+
+        <label>Password</label>
+        <input type="password" placeholder="Enter your password" required>
+
+        <a href="#">Forgot password?</a>
+
+        <button type="submit">Login</button>
+
+        <p class="text-center">Sign in with</p>
+        <div class="social-icons">
+          <img src="https://img.icons8.com/color/48/google-logo.png" alt="google">
+          <img src="https://img.icons8.com/color/48/facebook.png" alt="facebook">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/mac-os.png" alt="apple">
+        </div>
+
+        <p class="switch-text">Don't have an account? <a href="#" onclick="showRegister()">Sign Up</a></p>
+      </form>
+    </div>
+
+    <div class="form-box hidden" id="registerBox">
+      <h2>Register</h2>
+      <form>
+        <label>Username</label>
+        <input type="text" placeholder="Enter your username" required>
+
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email" required>
+
+        <label>Password</label>
+        <input type="password" placeholder="Enter your password" required>
+
+        <button type="submit">Register</button>
+
+        <p class="switch-text">Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
