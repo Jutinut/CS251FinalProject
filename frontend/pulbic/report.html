@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Track Master - Report</title>
-  <link rel="stylesheet" href="css/style_payment.css">
+  <link rel="stylesheet" href="css/style_report.css">
 </head>
 <body>
     <header class="navbar">
@@ -17,12 +17,19 @@
           <a href="account.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/user.png"><span>Account</span></a>
         </nav>
       </header>
-
-  <main>
-    <h1>Report</h1>
-    <p>Here are your reports and tracking details.</p>
-    <!-- รายงานการติดตาม -->
-  </main>
+      <main>
+        <h1>รายงานปัญหา / แจ้งขอคืนพัสดุ</h1>
+        <form>
+          <label><input type="checkbox"> ได้รับพัสดุไม่ครบถ้วน</label><br>
+          <label><input type="checkbox"> พัสดุที่ได้รับบางผิด</label><br>
+          <label><input type="checkbox"> พัสดุเกิดความเสียหาย</label><br>
+          <label><input type="checkbox"> เหตุผลอื่นๆ</label><br><br>
+    
+          <textarea placeholder="กรุณาแจ้งเหตุผล" rows="4" style="width: 100%; padding: 10px;"></textarea><br><br>
+    
+          <button type="submit">Submit</button>
+        </form>
+      </main>
 
   <footer class="footer-bar"></footer>
 </body>
