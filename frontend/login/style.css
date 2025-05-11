@@ -109,4 +109,32 @@ body {
   .hidden {
     display: none;
   }
+
+  .password-wrapper {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.password-wrapper input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 40px 10px 10px; 
+  border: 1px solid white;
+  border-radius: 6px;
+  background: #1d3a63;
+  color: white;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.2em;
+  color: #ccc;
+}
+
+
   

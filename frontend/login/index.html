@@ -14,7 +14,10 @@
         <input type="text" placeholder="Enter your username" required>
 
         <label>Password</label>
-        <input type="password" placeholder="Enter your password" required>
+          <div class="password-wrapper">
+            <input type="password" id="loginPassword" placeholder="Enter your password" required>
+              <span class="toggle-password" onclick="togglePassword('loginPassword', this)">👁</span>
+        </div>
 
         <a href="#">Forgot password?</a>
 
@@ -41,7 +44,10 @@
         <input type="email" placeholder="Enter your email" required>
 
         <label>Password</label>
-        <input type="password" placeholder="Enter your password" required>
+          <div class="password-wrapper">
+            <input type="password" id="registerPassword" placeholder="Enter your password" required>
+              <span class="toggle-password" onclick="togglePassword('registerPassword', this)">👁</span>
+          </div>
 
         <button type="submit">Register</button>
 
