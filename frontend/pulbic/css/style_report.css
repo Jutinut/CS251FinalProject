@@ -101,6 +101,33 @@ main {
   button:hover {
     background: #007e2a;
   }
+
+  /* Success message styling */
+    #successMessage {
+    text-align: center;
+    font-size: 1.5em;
+    color: #0e1e5b;
+    margin-top: 20px;
+  }
+  
+  h2{
+    margin-top: 80px;
+    padding-bottom: 20px;
+  }
+
+  .correct {
+    font-size: 50px;
+    color: white; /* สีของเครื่องหมาย ✔ */
+    background-color: rgb(9, 168, 22); /* สีพื้นหลังเขียว */
+    width: 180px; /* ขนาดวงกลม */
+    height: 180px; /* ขนาดวงกลม */
+    border-radius: 50%; /* ทำให้เป็นวงกลม */
+    display: flex;
+    justify-content: center; /* จัดกลางแนวนอน */
+    align-items: center; /* จัดกลางแนวตั้ง */
+    margin: 0 auto; /* จัดให้กลางหน้า */
+    margin-bottom: 120px;
+  }
  
   .footer-bar {
     height: 100px;

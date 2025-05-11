@@ -18,8 +18,8 @@
         </nav>
       </header>
       <main>
-        <h1>รายงานปัญหา / แจ้งขอคืนพัสดุ</h1>
-        <form>
+          <form>
+            <h1>รายงานปัญหา / แจ้งขอคืนพัสดุ</h1>
           <label><input type="checkbox"> ได้รับพัสดุไม่ครบถ้วน</label><br>
           <label><input type="checkbox"> พัสดุที่ได้รับบางผิด</label><br>
           <label><input type="checkbox"> พัสดุเกิดความเสียหาย</label><br>
@@ -27,10 +27,16 @@
     
           <textarea placeholder="กรุณาแจ้งเหตุผล" rows="4" style="width: 100%; padding: 10px;"></textarea><br><br>
     
-          <button type="submit">Submit</button>
+          <button type="button" onclick="submitReport()">Submit</button>
         </form>
+        <!-- Success message -->
+        <div id="successMessage" style="display: none;">
+        <h2>ได้รับการรายงานของท่านแล้ว</h2>
+        <div class="correct" style="font-size: 120px; color: white;">✔</div>
+      </div>
       </main>
 
   <footer class="footer-bar"></footer>
+  <script src="js/script.js"></script> 
 </body>
 </html>
