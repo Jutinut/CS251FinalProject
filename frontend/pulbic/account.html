@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Track Master - Account</title>
-  <link rel="stylesheet" href="css/style_payment.css">
+  <link rel="stylesheet" href="css/style_account.css">
 </head>
 <body>
     <header class="navbar">
@@ -12,18 +12,50 @@
           <a href="home.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/home.png"><span>Home</span></a>
           <a href="orders.html"><img src="img/box.png"><span>Orders</span></a>
           <a href="mytrucks.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/delivery.png"><span>My Trucks</span></a>
-          <a href="payment.html" class="active"><img src="https://img.icons8.com/ios-filled/50/ffffff/money.png"><span>Payment</span></a>
+          <a href="payment.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/money.png"><span>Payment</span></a>
           <a href="report.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/error.png"><span>Report</span></a>
-          <a href="account.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/user.png"><span>Account</span></a>
+          <a href="account.html" class="active"><img src="https://img.icons8.com/ios-filled/50/ffffff/user.png"><span>Account</span></a>
         </nav>
-      </header>
+    </header>
 
-  <main>
-    <h1>Your Account</h1>
-    <p>Here you can view and update your account details.</p>
-    <!-- ข้อมูลบัญชีผู้ใช้ -->
-  </main>
+    <main>
+      <section class="account-container">
+        <div class="profile-header">
+          <div class="profile-image">
+            <img src="img/profile.png" alt="User Profile">
+          </div>
+          <div class="profile-title">
+            <h3 id="username">xxxxxxxxxx</h3>
+            <p id="user-id">ID : xxxxxxxxxx</p>
+          </div>
+          <div class="edit-button-container">
+            <button type="button" class="edit-button">Edit</button>
+          </div>
+        </div>
+        
+        <div class="profile-form">
+          <form action="#" method="POST">
+            <div class="form-group">
+              <label for="full-name">Full Name</label>
+              <input type="text" id="full-name" name="full-name" value="xxxxxxxxxx" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" value="xxxxxxxxxx" required>
+            </div>
+            <div class="form-group">
+              <label for="salary">Salary</label>
+              <input type="text" id="salary" name="salary" value="xxxxxxxxxx" required>
+            </div>
+          </form>
+        </div>
+      </section>
 
-  <footer class="footer-bar"></footer>
+      <div class="logout-container">
+        <button type="button" class="logout-button">Logout</button>
+      </div>
+    </main>
+
+    <footer class="footer-bar"></footer>
 </body>
 </html>

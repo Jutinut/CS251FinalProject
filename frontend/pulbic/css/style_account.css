@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* HEADER NAVBAR */
+  .navbar {
+    background-color: #0e1e5b;
+    display: flex;
+    flex-direction: column;
+    padding: 1px 0;
+    color: white;
+  }
+  
+  /* โลโก้ TM อยู่ซ้ายสุด */
+  .logo {
+    font-size: 70px;
+    font-weight: bold;
+    padding-left: 60px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin-bottom: 8px;
+    position: absolute;
+    left: 30px;
+  }
+  
+  .menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 100px;
+    padding-left: 140px;
+  }
+  
+  .menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .menu a img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 4px;
+    padding-top: 20px;
+  }
+  
+
+/* MAIN CONTENT */
+main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* PROFILE SECTION */
+.account-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.profile-image {
+    margin-right: 20px;
+}
+
+.profile-image img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-title h3 {
+    font-size: 22px;
+    margin: 0 0 5px 0;
+}
+
+.profile-title p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.edit-button-container {
+    position: absolute;
+    right: 0;
+}
+
+.edit-button {
+    background-color: #0e1e5b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 25px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* FORM STYLING */
+.profile-form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* LOGOUT BUTTON */
+.logout-container {
+    position: fixed;
+    bottom: 120px;
+    right: 30px;
+}
+
+.logout-button {
+    background-color: #0e1e5b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* FOOTER */
+.footer-bar {
+    height: 100px;
+    position: relative;
+    background-color: #0e1e5b;
+    margin-top: auto;
+    width: 100%;
+    overflow: hidden;
+}
+
+.footer-bar::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 150%;
+    height: 140%;
+    background-image: url('../img/skyline.png');
+    background-repeat: repeat-x;
+    background-position: bottom center;
+    background-size: contain;
+    opacity: 0.1;
+    z-index: 1;
+}
