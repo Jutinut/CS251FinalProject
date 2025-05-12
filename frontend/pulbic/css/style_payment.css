@@ -34,6 +34,7 @@ body {
   flex-wrap: wrap;
   gap: 100px;
   padding-left: 140px;
+  padding-bottom: 20px;
 }
 
 .menu a {
