@@ -3,27 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <title>Track Master - Orders</title>
-  <link rel="stylesheet" href="css/style_payment.css">
+  <link rel="stylesheet" href="css/style_orders.css">
 </head>
 <body>
-    <header class="navbar">
-        <div class="logo">TM</div>
-        <nav class="menu">
-          <a href="home.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/home.png"><span>Home</span></a>
-          <a href="orders.html"><img src="img/box.png"><span>Orders</span></a>
-          <a href="mytrucks.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/delivery.png"><span>My Trucks</span></a>
-          <a href="payment.html" class="active"><img src="https://img.icons8.com/ios-filled/50/ffffff/money.png"><span>Payment</span></a>
-          <a href="report.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/error.png"><span>Report</span></a>
-          <a href="account.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/user.png"><span>Account</span></a>
-        </nav>
-      </header>
+  <header class="navbar">
+    <div class="logo">TM</div>
+    <nav class="menu">
+      <a href="home.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/home.png"><span>Home</span></a>
+      <a href="orders.html"><img src="img/box.png"><span>Orders</span></a>
+      <a href="mytrucks.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/delivery.png"><span>My Trucks</span></a>
+      <a href="payment.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/money.png"><span>Payment</span></a>
+      <a href="report.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/error.png"><span>Report</span></a>
+      <a href="account.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/user.png"><span>Account</span></a>
+    </nav>
+  </header>
 
-  <main>
-    <h1>Your Orders</h1>
-    <p>Here are the orders you have placed.</p>
-    <!-- รายการสั่งซื้อจะมาอยู่ที่นี่ -->
+  <main class="order-form">
+    <form id="parcelForm">
+      <h2>Receiver Details</h2>
+      <input type="text" id="phone" placeholder="Receiver's Phone Number" required>
+      <input type="text" id="name" placeholder="Receiver's Name" required>
+
+      <h2>Delivery Address</h2>
+      <input type="text" id="area" placeholder="City > Zone > Area" required>
+      <input type="text" id="fullAddress" placeholder="Enter Full Address" required>
+
+      <div class="weight-box">
+        <h3>Delivery charge calculations</h3>
+        <label>Parcel Weight (K.G)</label>
+        <input type="range" min="0.1" max="99" step="0.1" value="1" id="weightSlider">
+        <p id="weightValue">1.0 KG</p>
+      </div>
+
+      <div class="button-group">
+        <button type="button" onclick="addParcel()">Add a parcel</button>
+        <button type="submit">Confirm</button>
+      </div>
+
+      <hr style="margin: 20px 0;">
+
+      <h3>Parcels Added</h3>
+      <ul id="parcelList"></ul>
+    </form>
   </main>
 
   <footer class="footer-bar"></footer>
+  <script src="js/orders.js"></script>
 </body>
 </html>
