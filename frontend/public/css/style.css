@@ -1,11 +1,17 @@
 body {
     margin: 0;
     font-family: sans-serif;
-    background: #0c2d66; /* พื้นหลังกรมเข้ม */
+    background: 
+    linear-gradient(rgba(12, 45, 102, 0.9), rgba(12, 45, 102, 0.9)), 
+    url('../img/skyline.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+   
   }
   
   .container {
