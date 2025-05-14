@@ -25,13 +25,15 @@
       <p class="tracking-code">#FSTH123456789</p>
       <p class="amount">60 Bath</p>
       <div class="upload-box">
-        <input type="file" id="fileUpload" hidden>
+        <input type="file" id="fileUpload" hidden onchange="displayFileName()">
         <label for="fileUpload" class="upload-label">Add a file <span>+</span></label>
+        <div id="fileName" class="file-name"></div> <!-- ส่วนแสดงชื่อไฟล์ -->
       </div>
-      <button class="confirm-btn">Confirm</button>
+      <button class="confirm-btn" onclick="confirmPayment()">Confirm</button>
     </div>
   </main>
 
   <footer class="footer-bar"></footer>
+  <script src="js/payment.js"></script>
 </body>
 </html>
