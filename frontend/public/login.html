@@ -2,8 +2,10 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
+  <meta name="google-signin-client_id" content="437924749556-e0ofrjeqhe3m9tpqevv8fdu96dkj9i9i.apps.googleusercontent.com">
   <title>Track Master - Login/Register</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
   <div class="container">
@@ -24,8 +26,8 @@
         <button type="submit">Login</button>
 
         <p class="text-center">Sign in with</p>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
         <div class="social-icons">
-          <a href="#"><img src="https://img.icons8.com/color/48/google-logo.png" alt="google"></a>
           <a href="#"><img src="https://img.icons8.com/color/48/facebook.png" alt="facebook"></a>
           <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/mac-os.png" alt="apple"></a>
         </div>
