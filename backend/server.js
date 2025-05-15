@@ -67,6 +67,7 @@ app.post('/login', async (req, res) => {
       res.status(200).json({
         status: 'success',
         user: {
+          ID: user.CustID,
           Name: user.Name,
           Address: user.Address,
           Phone: user.Phone
@@ -79,6 +80,30 @@ app.post('/login', async (req, res) => {
     console.error(err);
     res.status(500).json({ message: 'Server error' });
   }
+});
+
+app.patch('/update/:CustId', async (req, res) => {
+    try {
+        const CustId = req.params.CustId;
+        const { Name, Phone } = req.body;
+
+        const pool = await sql.connect(dbConfig);
+
+        const result = await pool.request()
+            .input('CustId', sql.Int, CustId)
+            .input('Name', sql.NVarChar, Name)
+            .input('Phone', sql.NVarChar, Phone)
+            .query('UPDATE Customer SET Name = @Name, Phone = @Phone WHERE CustID = @CustId');
+
+        if (result.rowsAffected[0] === 0) {
+            return res.status(400).json({ success: false, message: 'No rows were updated.' });
+        }
+
+        res.json({ success: true, message: 'Customer information updated successfully.' });
+    } catch (error) {
+        console.error('Database error:', error);
+        res.status(500).json({ success: false, message: 'Failed to update customer information.' });
+    }
 });
 
 app.listen(3000, () => {
