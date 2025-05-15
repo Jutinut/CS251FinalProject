@@ -45,6 +45,42 @@ app.post('/register', async (req, res) => {
   }
 });
 
+app.post('/login', async (req, res) => {
+  const { Username, Password } = req.body;
+
+  try {
+    await sql.connect(dbConfig);
+
+    const query = `
+      SELECT * FROM Customer 
+      WHERE Username = @username AND Password = @password
+    `;
+
+    const request = new sql.Request();
+    request.input('Username', sql.VarChar, Username);
+    request.input('Password', sql.VarChar, Password);
+
+    const result = await request.query(query);
+
+    if (result.recordset.length > 0) {
+      const user = result.recordset[0];
+      res.status(200).json({
+        status: 'success',
+        user: {
+          Name: user.Name,
+          Address: user.Address,
+          Phone: user.Phone
+        }
+      });
+    } else {
+      res.status(401).json({ status: 'failed' });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 app.listen(3000, () => {
     console.log('Server is running on http://localhost:3000');
 });
