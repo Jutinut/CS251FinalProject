@@ -83,14 +83,14 @@ app.post('/login', async (req, res) => {
 });
 
 app.post('/regisorder', async (req, res) => {
-  const { Phone, Name, City, Address, Weight } = req.body;
+  const { Phone, Name, City, Address, Weight, Deliver } = req.body;
 
   try {
     await sql.connect(dbConfig);
 
     const query = `
-      INSERT INTO Parcel (Phone, Name, City, Address, Weight)
-      VALUES (@Phone, @Name, @City, @Address, @Weight)
+      INSERT INTO Parcel (Phone, Name, City, Address, Weight, Deliver)
+      VALUES (@Phone, @Name, @City, @Address, @Weight, @Deliver)
     `;
 
     const request = new sql.Request();
@@ -99,6 +99,7 @@ app.post('/regisorder', async (req, res) => {
     request.input('City', sql.NVarChar, City);
     request.input('Address', sql.NVarChar, Address);
     request.input('Weight', sql.FLOAT, Weight);
+    request.input('Deliver', sql.VARCHAR, Deliver);
 
     await request.query(query);
 
@@ -130,6 +131,46 @@ app.patch('/update/:CustId', async (req, res) => {
     } catch (error) {
         console.error('Database error:', error);
         res.status(500).json({ success: false, message: 'Failed to update customer information.' });
+    }
+});
+
+app.get('/order/:ParcelID', async (req, res) => {
+    try {
+        const { ParcelID } = req.params;
+        const pool = await sql.connect(dbConfig);
+
+        const result = await pool.request()
+            .input('ParcelID', sql.Int, ParcelID)
+            .query('SELECT * FROM Parcel WHERE ParcelID = @ParcelID');
+
+        if (result.recordset.length > 0) {
+            res.json(result.recordset);
+        } else {
+            res.status(404).json({ message: 'No requests found' });
+        }
+    } catch (error) {
+        console.error('Database error:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+app.get('/orderuser/:Deliver', async (req, res) => {
+    try {
+        const { Deliver } = req.params;
+        const pool = await sql.connect(dbConfig);
+
+        const result = await pool.request()
+            .input('Deliver', sql.VARCHAR, Deliver)
+            .query('SELECT * FROM Parcel WHERE Deliver = @Deliver');
+
+        if (result.recordset.length > 0) {
+            res.json(result.recordset);
+        } else {
+            res.status(404).json({ message: 'No requests found' });
+        }
+    } catch (error) {
+        console.error('Database error:', error);
+        res.status(500).json({ message: 'Server error' });
     }
 });
 
