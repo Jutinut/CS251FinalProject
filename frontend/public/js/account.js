@@ -49,3 +49,11 @@
       window.location.href = "login.html";
     }
   }
+
+let userName = sessionStorage.getItem('userName');
+let userAddress = sessionStorage.getItem('userAddress');
+let userPhone = sessionStorage.getItem('userPhone');
+
+if (userName) {
+  document.getElementById('username').textContent = userName;
+}
