@@ -13,7 +13,7 @@
       <h2>Login</h2>
       <form>
         <label>Username</label>
-        <input type="text" placeholder="Enter your username" required>
+        <input type="text" id="loginUsername" placeholder="Enter your username" required>
 
         <label>Password</label>
           <div class="password-wrapper">
@@ -23,7 +23,7 @@
 
         <a href="#">Forgot password?</a>
 
-        <button type="submit">Login</button>
+        <button type="button" onclick="loginUser()">Login</button>
 
         <p class="text-center">Sign in with</p>
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
