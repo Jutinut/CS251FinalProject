@@ -43,3 +43,40 @@ const slider = document.getElementById("weightSlider");
       alert("ระบบได้รับข้อมูลพัสดุทั้งหมดแล้ว (" + parcels.length + " รายการ)");
       // ที่นี่สามารถส่งไปยัง backend ได้ผ่าน fetch() หรือ form.submit()
     });
+
+async function registerOrder() {
+  const phone = document.getElementById('phone').value;
+  const name = document.getElementById('name').value;
+  const city = document.getElementById('area').value;
+  const address = document.getElementById('fullAddress').value;
+  const weight = document.getElementById('weightSlider').value;
+
+  const userData = {
+    Phone: phone,
+    Name: name,
+    City: city,
+    Address: address,
+    Weight: weight
+  };
+
+  try {
+    const response = await fetch('http://localhost:3000/regisorder', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userData),
+    });
+
+    if (response.ok) {
+      alert('Registration successful!');
+      document.getElementById('parcelForm').reset();
+      window.location.reload();
+    } else {
+      alert('Registration failed. Please try again.');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('An error occurred. Please try again later.');
+  }
+}
