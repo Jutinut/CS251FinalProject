@@ -44,16 +44,19 @@
     }
   });
 
+  let userID = sessionStorage.getItem("userID");
+  let userName = sessionStorage.getItem("userName");
+  let userAddress = sessionStorage.getItem("userAddress");
+  let userPhone = sessionStorage.getItem("userPhone");
+  
+  if (userID && userName) {
+    document.getElementById("user-name").textContent = userName;
+    document.getElementById("user-id").textContent = "ID : " + userID;
+  }
+  
   function logout() {
     if (confirm("คุณต้องการออกจากระบบหรือไม่?")) {
+      sessionStorage.clear();
       window.location.href = "login.html";
     }
   }
-
-let userName = sessionStorage.getItem('userName');
-let userAddress = sessionStorage.getItem('userAddress');
-let userPhone = sessionStorage.getItem('userPhone');
-
-if (userName) {
-  document.getElementById('username').textContent = userName;
-}
