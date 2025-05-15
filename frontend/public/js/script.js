@@ -90,6 +90,7 @@ async function loginUser(event) {
 
     if (response.status === 200) {
       alert('Login successful');
+      sessionStorage.setItem('userID', data.user.ID);
       sessionStorage.setItem('userName', data.user.Name);
       sessionStorage.setItem('userAddress', data.user.Address);
       sessionStorage.setItem('userPhone', data.user.Phone);
@@ -103,40 +104,3 @@ async function loginUser(event) {
     alert('An error occurred. Please try again later.');
   }
 }
-
-
-/* async function loginUser() {
-    const username = document.getElementById('loginUsername').value;
-    const password = document.getElementById('loginPassword').value;
-
-    const userData = {
-      Username: username,
-      Password: password
-    };
-
-    try {
-      const response = await fetch('http://localhost:3000/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData),
-      });
-
-      const data = await response.json();
-
-      if (response.ok && data.status === 'success') {
-        alert('Login successful');
-        sessionStorage.setItem('userName', data.user.Name);
-        sessionStorage.setItem('userAddress', data.user.Address);
-        sessionStorage.setItem('userPhone', data.user.Phone);
-
-        window.location.href = 'home.html'
-      } else {
-        alert('Login Failed');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('An error occurred. Please try again later.');
-    }
-  } */
