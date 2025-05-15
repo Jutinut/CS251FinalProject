@@ -50,13 +50,15 @@ async function registerOrder() {
   const city = document.getElementById('area').value;
   const address = document.getElementById('fullAddress').value;
   const weight = document.getElementById('weightSlider').value;
+  const deliver = sessionStorage.getItem("userID");
 
   const userData = {
     Phone: phone,
     Name: name,
     City: city,
     Address: address,
-    Weight: weight
+    Weight: weight,
+    Deliver: deliver
   };
 
   try {
