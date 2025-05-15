@@ -19,47 +19,17 @@
   </header>
 
   <main>
-    <div class="main-container">
-      <div class="tracking-container">
-        <!-- แสดงให้ซ้าย -->
-        <div class="tracking-box">
-          <div class="tracking-header">
-            <div class="parcel-icon">
-              <img src="img/package.png" alt="Package">
-            </div>
-            <div class="parcel-id">
-              <h2>#FSTH123456789</h2>
-              <p>On the way - 24 MAY</p>
-            </div>
-          </div>
-          
-          <div class="map-container">
-            <a href="https://maps.app.goo.gl/t13h8ETp1fcVFJJS7" target="_blank">
-              <img src="img/map_cs.png" alt="Tracking Map" class="tracking-map">
-            </a>
-          </div>
-          
-          <div class="status-tracker">
-            <div class="status-line">
-              <div class="status-dot completed"></div>
-              <div class="status-dot completed"></div>
-              <div class="status-dot completed"></div>
-              <div class="status-dot"></div>
-            </div>
-            <div class="status-labels">
-              <div class="status-label">In the midst of verification</div>
-              <div class="status-label">Verify order</div>
-              <div class="status-label">Shipping</div>
-              <div class="status-label">Delivered</div>
-            </div>
-            <button class="delivered-button">Delivered</button>
-          </div>
-          
-        </div>
+      <!-- Added tracking container here -->
+      <div id="tracking-container" class="tracking-container">
+        <!-- Parcel details will be inserted here by JavaScript -->
       </div>
+
+      <div id="status-result" class="status-result"></div>
+    </section>
   </main>
 
   <footer class="footer-bar"></footer>
   <script src="js/mytruck.js"></script>
+  <script src="js/mytrackrequest.js"></script>
 </body>
 </html>
