@@ -82,6 +82,33 @@ app.post('/login', async (req, res) => {
   }
 });
 
+app.post('/regisorder', async (req, res) => {
+  const { Phone, Name, City, Address, Weight } = req.body;
+
+  try {
+    await sql.connect(dbConfig);
+
+    const query = `
+      INSERT INTO Parcel (Phone, Name, City, Address, Weight)
+      VALUES (@Phone, @Name, @City, @Address, @Weight)
+    `;
+
+    const request = new sql.Request();
+    request.input('Phone', sql.VarChar, Phone);
+    request.input('Name', sql.NVarChar, Name);
+    request.input('City', sql.NVarChar, City);
+    request.input('Address', sql.NVarChar, Address);
+    request.input('Weight', sql.FLOAT, Weight);
+
+    await request.query(query);
+
+    res.status(201).send('Parcel registered successfully');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server error');
+  }
+});
+
 app.patch('/update/:CustId', async (req, res) => {
     try {
         const CustId = req.params.CustId;
