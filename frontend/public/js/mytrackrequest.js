@@ -72,7 +72,7 @@ async function fetchRequests() {
         console.error("Error fetching requests:", error);
         const complaintContainer = document.getElementById("tracking-container");
         if (complaintContainer) {
-            complaintContainer.innerHTML = `<p>Error loading requests. Please try again later.</p>`;
+            complaintContainer.innerHTML = `<p style = "font-size: 18px; font-weight: bold;">Not found any orders.</p>`;
         }
     }
 }

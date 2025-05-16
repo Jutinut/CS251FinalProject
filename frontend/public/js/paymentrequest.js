@@ -38,7 +38,7 @@ async function fetchRequests() {
       <h2>Payment</h2>
       <img src="img/QR_code.png" alt="QR Code" class="qr-image">
       <p class="tracking-code" id="tracking-code">${request.ParcelID}</p>
-      <p class="amount" id="amount">60 Bath</p>
+      <p class="amount" id="amount">XX Bath</p>
       <div class="upload-box">
         <input type="file" id="fileUpload" hidden onchange="displayFileName()">
         <label for="fileUpload" class="upload-label">Add a file <span>+</span></label>
@@ -52,7 +52,7 @@ async function fetchRequests() {
         console.error("Error fetching requests:", error);
         const complaintContainer = document.getElementById("paymentheader");
         if (complaintContainer) {
-            complaintContainer.innerHTML = `<p>Error loading requests. Please try again later.</p>`;
+            complaintContainer.innerHTML = `<p style = "font-size: 18px; font-weight: bold;">Not found any orders.</p>`;
         }
     }
 }
