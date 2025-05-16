@@ -1,4 +1,4 @@
-  const parcelData = {
+/*   const parcelData = {
     "PKG123": "📦 จัดส่งสำเร็จแล้ว",
     "PKG456": "🚚 ระหว่างขนส่ง",
     "PKG789": "⏳ รอจัดส่ง",
@@ -23,46 +23,53 @@
       resultBox.textContent = "❌ ไม่พบข้อมูลพัสดุ " + trackingNumber;
       resultBox.style.color = "crimson";
     }
-  });
+  }); */
 
 async function fetchRequests() {
-    try {
-        const trackingInput = document.getElementById("tracking-number");
-        const CustID = trackingInput.value.trim();
-        if (!CustID) {
-            throw new Error("Customer not found orders.");
-        }
-        const queryURL = `http://localhost:3000/order/${CustID}`;
-        console.log(`Query URL: ${queryURL}`);
+  try {
+    const trackingInput = document.getElementById("tracking-number");
+    const CustID = trackingInput.value.trim();
+    if (!CustID) {
+      throw new Error("กรุณาใส่หมายเลขพัสดุก่อนติดตาม");
+    }
 
-        const response = await fetch(queryURL);
-        if (!response.ok) throw new Error("Failed to fetch data");
+    const queryURL = `http://localhost:3000/order/${CustID}`;
+    console.log(`Query URL: ${queryURL}`);
 
-        let data = await response.json();
-        console.log("Data fetched:", data);
+    const response = await fetch(queryURL);
 
-        const complaintContainer = document.getElementById("trackbox");
-        if (!complaintContainer) throw new Error("Complaint container element not found");
+    // หากสถานะตอบกลับเป็น 404 (ไม่พบข้อมูล)
+    if (response.status === 404) {
+      throw new Error(`❌ ไม่พบข้อมูลพัสดุ ${CustID}`);
+    }
 
-        complaintContainer.innerHTML = "";
+    if (!response.ok) throw new Error("ไม่สามารถดึงข้อมูลได้");
 
-        if (!Array.isArray(data)) {
-            data = [data];
-        }
+    let data = await response.json();
+    console.log("Data fetched:", data);
 
-        if (data.length === 0) {
-            complaintContainer.innerHTML = "<p>No orders found</p>";
-            return;
-        }
-        
-        const sortedData = data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+    const complaintContainer = document.getElementById("trackbox");
+    if (!complaintContainer) throw new Error("ไม่พบส่วนแสดงผล");
 
-        sortedData.forEach((request) => {
-            const item = document.createElement("div");
-            item.classList.add("track");
+    complaintContainer.innerHTML = "";
 
-            item.innerHTML = `
-                <table>
+    if (!Array.isArray(data)) {
+      data = [data];
+    }
+
+    if (data.length === 0) {
+      complaintContainer.innerHTML = "<p>ไม่พบคำสั่งซื้อ</p>";
+      return;
+    }
+
+    const sortedData = data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
+    sortedData.forEach((request) => {
+      const item = document.createElement("div");
+      item.classList.add("track");
+
+      item.innerHTML = `
+        <table>
           <thead>
             <tr>
               <th scope="col">ParcelID</th>
@@ -86,13 +93,13 @@ async function fetchRequests() {
             </tr>
           </tbody>
         </table>`;
-            complaintContainer.appendChild(item);
-        });
-    } catch (error) {
-        console.error("Error fetching requests:", error);
-        const complaintContainer = document.getElementById("tracking-container");
-        if (complaintContainer) {
-            complaintContainer.innerHTML = `<p>Error loading requests. Please try again later.</p>`;
-        }
+      complaintContainer.appendChild(item);
+    });
+  } catch (error) {
+    console.error("Error fetching requests:", error);
+    const complaintContainer = document.getElementById("trackbox");
+    if (complaintContainer) {
+      complaintContainer.innerHTML = `<p style="color: crimson; font-size: 18px; font-weight: bold;">${error.message}</p>`;
     }
+  }
 }
